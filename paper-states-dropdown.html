@@ -1,0 +1,111 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/iron-form-element-behavior/iron-form-element-behavior.html">
+<link rel="import" href="/bower_components/iron-validatable-behavior/iron-validatable-behavior.html">
+<link rel="import" href="/bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="/bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="/bower_components/paper-item/paper-item.html">
+<link rel="import" href="/components/global/global-scripts.html">
+<link rel="import" href="/components/global/global-models.html">
+
+<dom-module name="paper-states-dropdown">
+    <template>
+        <paper-dropdown-menu label="{{label}}"
+                             noink
+                             invalid="[[invalid]]"
+                             disabled="[[disabled]]"
+                             required="[[required]]">
+            <paper-menu class="dropdown-content" attr-for-selected="value" selected="{{selected}}">
+                <template is="dom-repeat" items="{{stateOptions}}">
+                    <paper-item label="{{item.text}}" value="{{item.value}}">{{item.text}}</paper-item>
+                </template>
+            </paper-menu>
+        </paper-dropdown-menu>
+    </template>
+    <script>
+        Polymer({
+            is: 'paper-states-dropdown',
+            behaviors: [Polymer.IronFormElementBehavior,
+                Polymer.IronValidatableBehavior
+            ],
+            properties: {
+                selected: {
+                    type: String,
+                    notify: true,
+                    readOnly: false,
+                    reflectToAttribute: true
+                }
+            },
+            ready: function(){
+                this.stateOptions = [
+                    { 'value': constants.stateIds.Alabama, 'text': 'Alabama' },
+                    { 'value': constants.stateIds.Alaska, 'text': 'Alaska' },
+                    { 'value': constants.stateIds.Arkansas, 'text': 'Arkansas' },
+                    { 'value': constants.stateIds.Arizona, 'text': 'Arizona' },
+                    { 'value': constants.stateIds.California, 'text': 'California' },
+                    { 'value': constants.stateIds.Colorado, 'text': 'Colorado' },
+                    { 'value': constants.stateIds.Connecticut, 'text': 'Connecticut' },
+                    { 'value': constants.stateIds.Delaware, 'text': 'Delaware' },
+                    { 'value': constants.stateIds.Florida, 'text': 'Florida' },
+                    { 'value': constants.stateIds.Georgia, 'text': 'Georgia' },
+                    { 'value': constants.stateIds.Hawaii, 'text': 'Hawaii' },
+                    { 'value': constants.stateIds.Idaho, 'text': 'Idaho' },
+                    { 'value': constants.stateIds.Illinois, 'text': 'Illinois' },
+                    { 'value': constants.stateIds.Indiana, 'text': 'Indiana' },
+                    { 'value': constants.stateIds.Iowa, 'text': 'Iowa' },
+                    { 'value': constants.stateIds.Kansas, 'text': 'Kansas' },
+                    { 'value': constants.stateIds.Kentucky, 'text': 'Kentucky' },
+                    { 'value': constants.stateIds.Louisiana, 'text': 'Louisiana' },
+                    { 'value': constants.stateIds.Maine, 'text': 'Maine' },
+                    { 'value': constants.stateIds.Maryland, 'text': 'Maryland' },
+                    { 'value': constants.stateIds.Massachusetts, 'text': 'Massachusetts' },
+                    { 'value': constants.stateIds.Michigan, 'text': 'Michigan' },
+                    { 'value': constants.stateIds.Minnesota, 'text': 'Minnesota' },
+                    { 'value': constants.stateIds.Mississippi, 'text': 'Mississippi' },
+                    { 'value': constants.stateIds.Missouri, 'text': 'Missouri' },
+                    { 'value': constants.stateIds.Montana, 'text': 'Montana' },
+                    { 'value': constants.stateIds.Nebraska, 'text': 'Nebraska' },
+                    { 'value': constants.stateIds.Nevada, 'text': 'Nevada' },
+                    { 'value': constants.stateIds.NewHampshire, 'text': 'New Hampshire' },
+                    { 'value': constants.stateIds.NewJersey, 'text': 'New Jersey' },
+                    { 'value': constants.stateIds.NewMexico, 'text': 'New Mexico' },
+                    { 'value': constants.stateIds.NewYork, 'text': 'New York' },
+                    { 'value': constants.stateIds.NorthCarolina, 'text': 'North Carolina' },
+                    { 'value': constants.stateIds.NorthDakota, 'text': 'North Dakota' },
+                    { 'value': constants.stateIds.Ohio, 'text': 'Ohio' },
+                    { 'value': constants.stateIds.Oklahoma, 'text': 'Oklahoma' },
+                    { 'value': constants.stateIds.Oregon, 'text': 'Oregon' },
+                    { 'value': constants.stateIds.Pennsylvania, 'text': 'Pennsylvania' },
+                    { 'value': constants.stateIds.RhodeIsland, 'text': 'Rhode Island' },
+                    { 'value': constants.stateIds.SouthCarolina, 'text': 'South Carolina' },
+                    { 'value': constants.stateIds.SouthDakota, 'text': 'South Dakota' },
+                    { 'value': constants.stateIds.Tennessee, 'text': 'Tennessee' },
+                    { 'value': constants.stateIds.Texas, 'text': 'Texas' },
+                    { 'value': constants.stateIds.Utah, 'text': 'Utah' },
+                    { 'value': constants.stateIds.Vermont, 'text': 'Vermont' },
+                    { 'value': constants.stateIds.Virginia, 'text': 'Virginia' },
+                    { 'value': constants.stateIds.Washington, 'text': 'Washington' },
+                    { 'value': constants.stateIds.WestVirginia, 'text': 'West Virginia'},
+                    { 'value': constants.stateIds.Wisconsin, 'text': 'Wisconsin' },
+                    { 'value': constants.stateIds.Wyoming, 'text': 'Wyoming' }];
+            },
+
+            stateChanged: function (e) {
+            },
+
+            onStateIndexChanged: function (e) {
+            },
+
+            /**
+             * Returns false if the element is required and does not have a selection,
+             * and true otherwise.
+             * @param {*=} _value Ignored.
+             * @return {boolean} true if `required` is false, or if `required` is true
+             * and the element has a valid selection.
+             */
+            _getValidity: function (_value) {
+                return this.disabled || !this.required || (this.required && !!this.value);
+            }
+        });
+    </script>
+</dom-module>
+
