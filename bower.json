@@ -1,0 +1,34 @@
+{
+  "name": "paper-dropdown-states",
+  "version": "1.0.0",
+  "description": "A simple wrapper of the Polymer paper-dropdown-menu element with prepopulated U.S. state options.",
+  "authors": [
+    "Philip Ermish"
+  ],
+  "keywords": [
+    "web-components",
+    "web-component",
+    "polymer",
+    "dropdown",
+    "states list",
+    "states"
+  ],
+  "main": "paper-dropdown-states.html",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Ermish/paper-dropdown-states"
+  },
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/Ermish/paper-dropdown-states",
+  "dependencies": {
+    "polymer": "polymer/polymer#^1.1.0",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-elements#^1.1.3",
+    "iron-form-element-behavior": "PolymerElements/iron-form-element-behavior#^1.0.0",
+    "iron-validatable-behavior": "PolymerElements/iron-validatable-behavior#^1.0.0"
+  },
+  "devDependencies": {
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "ignore": []
+}

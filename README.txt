@@ -1,4 +1,4 @@
-# paper-states-dropdown
+# paper-dropdown-states
 
 ## What is it?
 
@@ -10,7 +10,7 @@ A simple wrapper of the Polymer paper-dropdown-menu element with prepopulated U.
 
 ### Add like any other Paper Element and the dropdown 
 ```html
-<paper-states-dropdown id="mystate" label="Selected A State" selected="{{state}}" required></paper-states-dropdown>
+<paper-dropdown-states id="mystate" label="Selected A State" selected="{{state}}" required></paper-dropdown-states>
 ```
 
 ## Examples
