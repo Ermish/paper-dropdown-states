@@ -7,7 +7,8 @@
 
 <dom-module name="paper-dropdown-states">
     <template>
-        <paper-dropdown-menu label="{{label}}"
+        <paper-dropdown-menu id="dropdown"
+                             label="{{label}}"
                              noink
                              invalid="[[invalid]]"
                              disabled="[[disabled]]"
@@ -102,9 +103,8 @@
              * and the element has a valid selection.
              */
             _getValidity: function (_value) {
-                return this.disabled || !this.required || (this.required && !!this.value);
+                return this.disabled || !this.required || (this.required && !!this.selected);
             }
         });
     </script>
 </dom-module>
-
