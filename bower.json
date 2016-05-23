@@ -1,6 +1,6 @@
 {
   "name": "paper-dropdown-states",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A simple wrapper of the Polymer paper-dropdown-menu element with prepopulated U.S. state options.",
   "authors": [
     "Philip Ermish"
